@@ -9,3 +9,9 @@ test('creates an intern object', () => {
     
     expect(intern.school).toBe('NYU');
 });
+
+test("gets intern's school", () => {
+    const intern = new Intern('Buddy', 'mybuddy@gmail.com', 'NYU');
+
+    expect(intern.getSchool()).toEqual(expect.stringContaining(intern.school.toString()));
+});
