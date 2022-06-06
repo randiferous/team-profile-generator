@@ -1,2 +1,3 @@
-const fs = require('fs');
-const inquirer = require('inquirer');
+const Prompt = require('./lib/Prompt');
+
+new Prompt().initializePrompt();
