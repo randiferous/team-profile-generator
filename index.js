@@ -58,6 +58,8 @@ const promptEmployees = (employeeArray) => {
                 writeFile(pageHTML)
             } else if (role === 'Engineer') {
                 promptEngineer(employeeArray);
+            } else if (role === 'Intern') {
+                promptIntern(employeeArray);
             }
         });
 }
@@ -93,43 +95,39 @@ const promptEngineer = (employeeArray) => {
             promptEmployees(employeeArray)
         });
 }
-//             {
-//                 type: 'input',
-//                 name: 'name',
-//                 message: "What is the employee's name?"
-//             },
-//             {
-//                 type: 'input',
-//                 name: 'id',
-//                 message: "What is the employee's ID?"
-//             },
-//             {
-//                 type: 'input',
-//                 name: 'email',
-//                 message: "What is the employee's email address?"
-//             },
-//             {
-//                 type: 'input',
-//                 name: 'github',
-//                 message: "What is the engineer's GitHub username?",
-//                 when: (response) => response.role === 'Engineer',
-//             },
-//             {
-//                 type: 'input',
-//                 name: 'school',
-//                 message: "what school does the intern attend?",
-//                 when: (response) => response.role === 'Intern',
-//             }
-//         ])
-//         .then(employeeResponse => {
-//             console.log(employeeResponse);
-//             if (employeeResponse.role === 'Engineer') {
-//                 const engineer = new Engineer(employeeResponse.name, employeeResponse.id, employeeResponse.email, employeeResponse.github);
-//                 employeeArray.push(engineer);
-//                 console.log(employeeArray);
-//             }
-//         })
-// }
+
+
+const promptIntern = (employeeArray) => {
+    console.log(employeeArray)
+    return inquirer
+        .prompt([
+            {
+                type: 'input',
+                name: 'name',
+                message: "What is the intern's name?"
+            },
+            {
+                type: 'input',
+                name: 'id',
+                message: "What is the intern's ID?"
+            },
+            {
+                type: 'input',
+                name: 'email',
+                message: "What is the intern's email address?"
+            },
+            {
+                type: 'input',
+                name: 'school',
+                message: "What school does the intern attend?"
+            }
+        ])
+        .then(internResponse => {
+            const intern = new Intern(internResponse.name, internResponse.id, internResponse.email, internResponse.school);
+            employeeArray.push(intern);
+            promptEmployees(employeeArray)
+        });
+}
 
 const writeFile = response => {
     return new Promise((resolve, reject) => {
@@ -148,4 +146,3 @@ const writeFile = response => {
 };
 
 promptManager()
-    // .then(promptEmployees)
