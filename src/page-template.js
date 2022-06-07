@@ -1,30 +1,42 @@
-const generateManager = managerResponse => {
-    if (!managerResponse) {
-        return ''
-    }
-
+const generateManager = function (managerResponse) {
     return `
-    `
+    <div class="card">
+        <div class="card-header">
+            <p class="card-header-title">
+            ${managerResponse.name} <br>
+            Manager </p>
+        </div>
+        <div class="card-content">
+            ${managerResponse.id} <br>
+            ${managerResponse.email} <br>
+            ${managerResponse.officeNumber}
+        </div>
+    </div>
+    `;
 }
 
-module.exports = template => {
+const generatePage = function () {
+
+    
     return `
     <!DOCTYPE html>
     <html lang="en">
-
+    
     <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Team Profile Generator</title>
-
+    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="style.css">
-
+    
     <body>
-        ${generateManager}
+        ${generateManager(managerResponse)}
     </body>
     </html>
     `
+} 
 
-}
+
+module.exports = generatePage;
