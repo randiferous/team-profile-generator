@@ -1,23 +1,21 @@
-const generateManager = function (managerResponse) {
+const generateManager = function (employeeResponse) {
     return `
     <div class="card">
         <div class="card-header">
             <p class="card-header-title">
-            ${managerResponse.name} <br>
+            ${employeeResponse.name} <br>
             Manager </p>
         </div>
         <div class="card-content">
-            ${managerResponse.id} <br>
-            ${managerResponse.email} <br>
-            ${managerResponse.officeNumber}
+            ${employeeResponse.id} <br>
+            ${employeeResponse.email} <br>
+            ${employeeResponse.officeNumber}
         </div>
     </div>
     `;
 }
 
-const generatePage = function () {
-
-    
+const generatePage = function (employeeResponse) {
     return `
     <!DOCTYPE html>
     <html lang="en">
@@ -32,11 +30,10 @@ const generatePage = function () {
     <link rel="stylesheet" href="style.css">
     
     <body>
-        ${generateManager(managerResponse)}
+        ${generateManager(employeeResponse)}
     </body>
     </html>
     `
 } 
-
 
 module.exports = generatePage;

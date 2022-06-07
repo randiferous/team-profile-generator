@@ -30,8 +30,12 @@ const promptManager = () => {
                 message: "What is the team manager's office number?"
             }
         ])
-        .then((managerResponse) =>
-        employeeResponse.push(managerResponse))
+        .then(managerResponse => {
+        const manager = new Manager(managerResponse.name, managerResponse.id, managerResponse.email, managerResponse.officeNumber);
+        employeeResponse.push(manager);
+        console.log(employeeResponse)
+    })
+
 }
 
 const writeFile = response => {
