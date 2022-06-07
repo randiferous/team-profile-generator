@@ -1,15 +1,16 @@
 const generateManager = function (employeeResponse) {
     console.log(employeeResponse)
     return `
-    <div class="card">
-        <div class="card-header">
-            <p class="card-header-title ">
-            ${employeeResponse[0].name} <br>
-            Manager </p>
+    <div class="card has-text-centered">
+        <div class="card-header is-flex is-justify-content-center is-flex-direction-column py-2 has-background-warning">
+            <h1 class="is-size-4 has-text-weight-semibold">
+            ${employeeResponse[0].name} </h1>
+            <h2 class="is-size-5">
+            Manager </h2>
         </div>
         <div class="card-content">
             ID: ${employeeResponse[0].id} <br>
-            Email: ${employeeResponse[0].email} <br>
+            Email: <a href="mailto:${employeeResponse[0].email}">${employeeResponse[0].email}</a><br>
             Office number: ${employeeResponse[0].officeNumber}
         </div>
     </div>
@@ -19,7 +20,7 @@ const generateManager = function (employeeResponse) {
 const generatePage = function (employeeResponse) {
     return `
     <!DOCTYPE html>
-    <html lang="en">
+    <html lang="en" class="has-background-light">
     
     <head>
     <meta charset="UTF-8">
@@ -31,7 +32,14 @@ const generatePage = function (employeeResponse) {
     <link rel="stylesheet" href="style.css">
     
     <body>
-        ${generateManager(employeeResponse)}
+        <nav class="navbar has-background-primary">
+            <p class="nav-item mx-auto my-6 is-size-2 has-text-weight-bold">
+            My Team
+            </p>
+        </nav>
+        <section class="section my-6 is-flex is-justify-content-center">
+            ${generateManager(employeeResponse)}
+        </section>
     </body>
     </html>
     `
