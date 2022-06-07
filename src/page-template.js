@@ -1,23 +1,22 @@
-const generateManager = function (employeeResponse) {
-    console.log(employeeResponse)
+const generateManager = function (managerArray) {
     return `
     <div class="card has-text-centered">
         <div class="card-header is-flex is-justify-content-center is-flex-direction-column py-2 has-background-warning">
             <h1 class="is-size-4 has-text-weight-semibold">
-            ${employeeResponse[0].name} </h1>
+            ${managerArray[0].name} </h1>
             <h2 class="is-size-5">
             Manager </h2>
         </div>
         <div class="card-content">
-            ID: ${employeeResponse[0].id} <br>
-            Email: <a href="mailto:${employeeResponse[0].email}">${employeeResponse[0].email}</a><br>
-            Office number: ${employeeResponse[0].officeNumber}
+            ID: ${managerArray[0].id} <br>
+            Email: <a href="mailto:${managerArray[0].email}">${managerArray[0].email}</a><br>
+            Office number: ${managerArray[0].officeNumber}
         </div>
     </div>
     `;
 }
 
-const generatePage = function (employeeResponse) {
+const generatePage = function (managerArray) {
     return `
     <!DOCTYPE html>
     <html lang="en" class="has-background-light">
@@ -38,7 +37,7 @@ const generatePage = function (employeeResponse) {
             </p>
         </nav>
         <section class="section my-6 is-flex is-justify-content-center">
-            ${generateManager(employeeResponse)}
+            ${generateManager(managerArray)}
         </section>
     </body>
     </html>
