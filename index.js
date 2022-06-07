@@ -33,7 +33,6 @@ const promptManager = () => {
         .then(managerResponse => {
         const manager = new Manager(managerResponse.name, managerResponse.id, managerResponse.email, managerResponse.officeNumber);
         employeeResponse.push(manager);
-        console.log(employeeResponse)
         return employeeResponse;
     })
 }
@@ -56,7 +55,6 @@ const writeFile = response => {
 
 promptManager()
     .then(employeeResponse => {
-        console.log(employeeResponse)
         return generatePage(employeeResponse);
     })
     .then(pageHTML => {

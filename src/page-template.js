@@ -1,15 +1,16 @@
 const generateManager = function (employeeResponse) {
+    console.log(employeeResponse)
     return `
     <div class="card">
         <div class="card-header">
-            <p class="card-header-title">
-            ${employeeResponse.name} <br>
+            <p class="card-header-title ">
+            ${employeeResponse[0].name} <br>
             Manager </p>
         </div>
         <div class="card-content">
-            ${employeeResponse.id} <br>
-            ${employeeResponse.email} <br>
-            ${employeeResponse.officeNumber}
+            ID: ${employeeResponse[0].id} <br>
+            Email: ${employeeResponse[0].email} <br>
+            Office number: ${employeeResponse[0].officeNumber}
         </div>
     </div>
     `;
