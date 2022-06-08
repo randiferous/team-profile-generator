@@ -16,6 +16,42 @@ const generateManager = function (employeeArray) {
     `;
 }
 
+const generateEngineer = function (employeeArray) {
+    return `
+    <div class="card has-text-centered">
+        <div class="card-header is-flex is-justify-content-center is-flex-direction-column py-2 has-background-warning">
+            <h1 class="is-size-4 has-text-weight-semibold">
+            ${employeeArray[1].name} </h1>
+            <h2 class="is-size-5">
+            Engineer </h2>
+        </div>
+        <div class="card-content">
+            ID: ${employeeArray[1].id} <br>
+            Email: <a href="mailto:${employeeArray[1].email}">${employeeArray[1].email}</a><br>
+            GitHub: <a href="https://github.com/${employeeArray[1].github}">${employeeArray[1].github}</a>
+        </div>
+    </div>
+    `;
+}
+
+const generateIntern = function (employeeArray) {
+    return `
+    <div class="card has-text-centered">
+        <div class="card-header is-flex is-justify-content-center is-flex-direction-column py-2 has-background-warning">
+            <h1 class="is-size-4 has-text-weight-semibold">
+            ${employeeArray[2].name} </h1>
+            <h2 class="is-size-5">
+            Intern </h2>
+        </div>
+        <div class="card-content">
+            ID: ${employeeArray[2].id} <br>
+            Email: <a href="mailto:${employeeArray[2].email}">${employeeArray[2].email}</a><br>
+            School: ${employeeArray[2].school}
+        </div>
+    </div>
+    `;
+}
+
 const generatePage = function (employeeArray) {
     return `
     <!DOCTYPE html>
@@ -36,8 +72,10 @@ const generatePage = function (employeeArray) {
             My Team
             </p>
         </nav>
-        <section class="section my-6 is-flex is-justify-content-center">
+        <section class="section my-6 is-flex is-justify-content-center is-justify-content-space-evenly">
             ${generateManager(employeeArray)}
+            ${generateEngineer(employeeArray)}
+            ${generateIntern(employeeArray)}
         </section>
         <footer class="footer has-background-primary">
         </footer>
