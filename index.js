@@ -56,6 +56,7 @@ const promptEmployees = (employeeArray) => {
 
                 let pageHTML = generatePage(employeeArray);
                 writeFile(pageHTML)
+                console.log("Your page is created!")
             } else if (role === 'Engineer') {
                 promptEngineer(employeeArray);
             } else if (role === 'Intern') {
