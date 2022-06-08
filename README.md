@@ -2,6 +2,8 @@
 
 The purpose of this assignment was for students to exercise their knowledge of Object-Oriented Programming and Test-Driven Development, as well as being able to implement the Inquirer module and the File System module from Node.js.
 
+(insert screeshot here)
+
 ## Description
 
 For this assignment, students had to create a Team Profile Generator.  The generator appears in the form of a command-line application and allows a user to input information that will help generate an HTML file that would result in a webpage showing this information.   Specifically, the generator asks for information about a Manager, Engineer, and Intern, for which a user may provide a name, employee ID, email address, office number, GitHub username, or a school.

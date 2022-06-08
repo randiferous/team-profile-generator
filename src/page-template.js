@@ -1,58 +1,81 @@
-const generateManager = function (employeeArray) {
+const generateManager = function (manager) {
     return `
     <div class="card has-text-centered">
         <div class="card-header is-flex is-justify-content-center is-flex-direction-column py-2 has-background-warning">
             <h1 class="is-size-4 has-text-weight-semibold">
-            ${employeeArray[0].name} </h1>
+            ${manager.name} </h1>
             <h2 class="is-size-5">
             Manager </h2>
         </div>
         <div class="card-content">
-            ID: ${employeeArray[0].id} <br>
-            Email: <a href="mailto:${employeeArray[0].email}">${employeeArray[0].email}</a><br>
-            Office number: ${employeeArray[0].officeNumber}
+            ID: ${manager.id} <br>
+            Email: <a href="mailto:${manager.email}">${manager.email}</a><br>
+            Office number: ${manager.officeNumber}
         </div>
     </div>
     `;
 }
 
-const generateEngineer = function (employeeArray) {
+const generateEngineer = function (engineer) {
     return `
     <div class="card has-text-centered">
         <div class="card-header is-flex is-justify-content-center is-flex-direction-column py-2 has-background-warning">
             <h1 class="is-size-4 has-text-weight-semibold">
-            ${employeeArray[1].name} </h1>
+            ${engineer.name} </h1>
             <h2 class="is-size-5">
             Engineer </h2>
         </div>
         <div class="card-content">
-            ID: ${employeeArray[1].id} <br>
-            Email: <a href="mailto:${employeeArray[1].email}">${employeeArray[1].email}</a><br>
-            GitHub: <a href="https://github.com/${employeeArray[1].github}">${employeeArray[1].github}</a>
+            ID: ${engineer.id} <br>
+            Email: <a href="mailto:${engineer.email}">${engineer.email}</a><br>
+            GitHub: <a href="https://github.com/${engineer.github}">${engineer.github}</a>
         </div>
     </div>
     `;
 }
 
-const generateIntern = function (employeeArray) {
+const generateIntern = function (intern) {
     return `
     <div class="card has-text-centered">
         <div class="card-header is-flex is-justify-content-center is-flex-direction-column py-2 has-background-warning">
             <h1 class="is-size-4 has-text-weight-semibold">
-            ${employeeArray[2].name} </h1>
+            ${intern.name} </h1>
             <h2 class="is-size-5">
             Intern </h2>
         </div>
         <div class="card-content">
-            ID: ${employeeArray[2].id} <br>
-            Email: <a href="mailto:${employeeArray[2].email}">${employeeArray[2].email}</a><br>
-            School: ${employeeArray[2].school}
+            ID: ${intern.id} <br>
+            Email: <a href="mailto:${intern.email}">${intern.email}</a><br>
+            School: ${intern.school}
         </div>
     </div>
     `;
 }
 
 const generatePage = function (employeeArray) {
+    // empty array?
+    const employeeCards = [];
+
+    for (let i = 0; i < employeeArray.length; i++) {
+        // const employee = employeeArray[i];
+        // const role = employee.getRole()
+        if (employeeArray[i].getRole() === 'Manager') {
+            const manager = employeeArray[i];
+            const managerCard = generateManager(manager)
+            employeeCards.push(managerCard);
+        }
+        else if (employeeArray[i].getRole() === 'Engineer') {
+            const engineer = employeeArray[i];
+            const engineerCard = generateEngineer(engineer)
+            employeeCards.push(engineerCard);
+        }
+        else if (employeeArray[i].getRole() === 'Intern') {
+            const intern = employeeArray[i];
+            const internCard = generateIntern(intern)
+            employeeCards.push(internCard);
+        }
+    }
+
     return `
     <!DOCTYPE html>
     <html lang="en" class="has-background-light">
@@ -73,9 +96,7 @@ const generatePage = function (employeeArray) {
             </p>
         </nav>
         <section class="section my-6 is-flex is-justify-content-center is-justify-content-space-evenly">
-            ${generateManager(employeeArray)}
-            ${generateEngineer(employeeArray)}
-            ${generateIntern(employeeArray)}
+            ${employeeCards}
         </section>
         <footer class="footer has-background-primary">
         </footer>
