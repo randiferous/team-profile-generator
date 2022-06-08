@@ -2,7 +2,9 @@
 
 The purpose of this assignment was for students to exercise their knowledge of Object-Oriented Programming and Test-Driven Development, as well as being able to implement the Inquirer module and the File System module from Node.js.
 
-(insert screeshot here)
+
+![alt text](./img/screenshot.PNG)
+
 
 ## Description
 
@@ -21,3 +23,5 @@ Then, as I was working on the inquirer prompts, there came that dreaded moment w
 The most difficult part of this project was definitely figuring out how to get prompt responses onto the template literal. There were many things to be mindful of, such as having an array, creating an object to push into that array, and making sure references to employee objects are in place in the index.js file. Then there was the issue of how and when to call the writeFile function, and ensuring that the array includes the proper information to transfer to the page template.  In order to deal with all of these issues, it was very important for me to take things step-by-step and console log many times along the way (key lessons we learned early in the bootcamp!)
 
 ## Walkthrough Video
+
+Here is a link to the walkthrough video of the application: https://drive.google.com/file/d/1TXwHEu_0cvVbyKIe2TebcDeqAiiStu1U/view?usp=sharing

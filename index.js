@@ -52,7 +52,6 @@ const promptEmployees = (employeeArray) => {
         .then(choiceResponse => {
             let { role } = choiceResponse;
             if (role === 'finish') {
-                console.log(employeeArray)
 
                 let pageHTML = generatePage(employeeArray);
                 writeFile(pageHTML)
@@ -66,7 +65,6 @@ const promptEmployees = (employeeArray) => {
 }
 
 const promptEngineer = (employeeArray) => {
-    console.log(employeeArray)
     return inquirer
         .prompt([
             {
@@ -99,7 +97,6 @@ const promptEngineer = (employeeArray) => {
 
 
 const promptIntern = (employeeArray) => {
-    console.log(employeeArray)
     return inquirer
         .prompt([
             {

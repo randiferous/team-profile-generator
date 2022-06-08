@@ -9,7 +9,7 @@ const generateManager = function (manager) {
         </div>
         <div class="card-content">
             ID: ${manager.id} <br>
-            Email: <a href="mailto:${manager.email}">${manager.email}</a><br>
+            Email: <a href="mailto:${manager.email}" target="_blank">${manager.email}</a><br>
             Office number: ${manager.officeNumber}
         </div>
     </div>
@@ -27,8 +27,8 @@ const generateEngineer = function (engineer) {
         </div>
         <div class="card-content">
             ID: ${engineer.id} <br>
-            Email: <a href="mailto:${engineer.email}">${engineer.email}</a><br>
-            GitHub: <a href="https://github.com/${engineer.github}">${engineer.github}</a>
+            Email: <a href="mailto:${engineer.email}" target="_blank">${engineer.email}</a><br>
+            GitHub: <a href="https://github.com/${engineer.github}" target="_blank">${engineer.github}</a>
         </div>
     </div>
     `;
@@ -45,7 +45,7 @@ const generateIntern = function (intern) {
         </div>
         <div class="card-content">
             ID: ${intern.id} <br>
-            Email: <a href="mailto:${intern.email}">${intern.email}</a><br>
+            Email: <a href="mailto:${intern.email}" target="_blank">${intern.email}</a><br>
             School: ${intern.school}
         </div>
     </div>
@@ -53,12 +53,10 @@ const generateIntern = function (intern) {
 }
 
 const generatePage = function (employeeArray) {
-    // empty array?
     const employeeCards = [];
 
     for (let i = 0; i < employeeArray.length; i++) {
-        // const employee = employeeArray[i];
-        // const role = employee.getRole()
+
         if (employeeArray[i].getRole() === 'Manager') {
             const manager = employeeArray[i];
             const managerCard = generateManager(manager)
